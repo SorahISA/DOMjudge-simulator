@@ -1,2 +1,5 @@
-example/
+example/*
+!example/nwerc18.json
+
 *.md
+!README.md
