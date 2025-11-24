@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoreboard - DOMjudge</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="../css/scoreboard-category-color.css">
+  <link rel="stylesheet" href="../css/style_domjudge.css">
+  <link rel="stylesheet" href="../css/scoreboard.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand hidden-sm-down" href="../index.html">DOMjudge</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuDefault" aria-controls="menuDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuDefault">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="problemset.html"><i class="fas fa-book-open"></i> Problemset</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="print.html"><i class="fas fa-file-alt"></i> Print</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="scoreboard.html"><i class="fas fa-list-ol"></i> Scoreboard</a>
+          </li>
+        </ul>
+
+        <div class="navbar-text me-3">
+          <a class="nav-link" data-go-home href="home.html">
+            <span class="btn btn-warning btn-sm">
+              <i class="fas fa-bell fa-fw"></i> Enable Notifications
+            </span>
+          </a>
+        </div>
+        <div class="navbar-text me-3">
+          <a class="nav-link" href="#" data-submit-modal>
+            <span class="btn btn-success btn-sm">
+              <i class="fas fa-cloud-upload-alt"></i> Submit
+            </span>
+          </a>
+        </div>
+        <a class="btn btn-info btn-sm me-2" data-go-home href="home.html">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+        <div class="navbar-text" style="white-space:nowrap;">
+          <span style="padding-left: 10px;">
+            <i class="fas fa-clock loading-indicator"></i>
+          </span>
+          <span id="timeleft">contest over</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid mt-3">
+    <div class="card mb-3">
+      <div class="dropdown">
+        <div class="card-header d-flex align-items-center justify-content-between dropdown-toggle" style="font-family: Roboto, sans-serif;" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+          <div id="contest-name">NWERC 2018</div>
+          <div class="text-md-end text-start">
+            <span id="contesttimer">
+              <span id="current-time">00:00:00</span> /
+              <span id="contest-length">05:00:00</span>
+            </span>
+          </div>
+        </div>
+        <div class="dropdown-menu p-3" style="min-width: 360px;">
+          <div class="mb-2 fw-bold">Replay Demo</div>
+          <div class="controls-row mb-2">
+            <label class="text-muted mb-0">Contest time</label>
+            <input id="time-slider" class="form-range flex-grow-1" type="range" min="0" max="18000" value="0" step="1">
+            <div class="text-muted" id="replay-speed-label">10s/tick · 6 tps</div>
+          </div>
+          <div class="controls-row">
+            <input class="form-control" id="seconds-per-tick" type="number" min="1" value="10" aria-label="seconds per tick">
+            <input class="form-control" id="ticks-per-second" type="number" min="1" value="6" aria-label="ticks per second">
+            <button class="btn btn-outline-secondary" id="freeze-toggle" type="button">Freeze ON</button>
+            <button class="btn btn-outline-primary" id="play-pause" type="button">Play</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-xl-11 mx-auto">
+        <div class="scoreboard-container">
+          <table id="scoreboard-table" class="scoreboard center desktop-scoreboard mb-0"></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <table id="cell_legend" class="d-none d-md-table scoreboard scorelegend ">
+        <thead><tr><th scope="col">Cell colours</th></tr></thead>
+        <tbody>
+          <tr class="score_correct score_first"><td>Solved first</td></tr>
+          <tr class="score_correct"><td>Solved</td></tr>
+          <tr class="score_incorrect"><td>Tried, incorrect</td></tr>
+          <tr class="score_pending"><td>Tried, pending</td></tr>
+          <tr class="score_neutral"><td>Untried</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="../js/state.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/modal-submit.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/scoreboard.js"></script>
+  <script src="../js/replay.js"></script>
+</body>
+</html>

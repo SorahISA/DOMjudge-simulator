@@ -1,0 +1,457 @@
+{
+    "contest": {
+        "name": "NWERC 2018",
+        "length": 18000,
+        "freeze": 14400,
+        "medals": [
+            4,
+            4,
+            4
+        ],
+        "n_problems": 11,
+        "problems": [
+            {
+                "short": "A",
+                "name": "Access Points",
+                "code": "accesspoints",
+                "color": "#FF0000",
+                "border": "#bf0000"
+            },
+            {
+                "short": "B",
+                "name": "Brexit Negotiations",
+                "code": "brexitnegotiations",
+                "color": "#0422D8",
+                "border": "#000098"
+            },
+            {
+                "short": "C",
+                "name": "Circuit Board Design",
+                "code": "circuitdesign",
+                "color": "#008100",
+                "border": "#004100"
+            },
+            {
+                "short": "D",
+                "name": "Date Pickup",
+                "code": "datepickup",
+                "color": "#FE9DAF",
+                "border": "#be5d6f"
+            },
+            {
+                "short": "E",
+                "name": "Equality Control",
+                "code": "equality",
+                "color": "#52AD00",
+                "border": "#126d00"
+            },
+            {
+                "short": "F",
+                "name": "Fastest Speedrun",
+                "code": "fastestspeedrun",
+                "color": "#62C6E8",
+                "border": "#2286a8"
+            },
+            {
+                "short": "G",
+                "name": "Game Design",
+                "code": "gamedesign",
+                "color": "#FF7109",
+                "border": "#bf3100"
+            },
+            {
+                "short": "H",
+                "name": "Hard Drive",
+                "code": "harddrive",
+                "color": "#6A0AC6",
+                "border": "#2a0086"
+            },
+            {
+                "short": "I",
+                "name": "Inflation",
+                "code": "inflation",
+                "color": "#FEE13B",
+                "border": "#bea100"
+            },
+            {
+                "short": "J",
+                "name": "Jinxed Betting",
+                "code": "jinxedbetting",
+                "color": "#C88FDE",
+                "border": "#884f9e"
+            },
+            {
+                "short": "K",
+                "name": "Kleptography",
+                "code": "kleptography",
+                "color": "#000000",
+                "border": "#000000"
+            }
+        ]
+    },
+    "contestant": [
+        {
+            "name": "Treenity",
+            "affiliation": "University of Cambridge",
+            "country": "GBR",
+            "submissions": [
+                {
+                    "problem": "I",
+                    "time": 720,
+                    "result": 1
+                },
+                {
+                    "problem": "K",
+                    "time": 1440,
+                    "result": 1
+                },
+                {
+                    "problem": "H",
+                    "time": 2400,
+                    "result": 1
+                },
+                {
+                    "problem": "C",
+                    "time": 3240,
+                    "result": 0
+                },
+                {
+                    "problem": "C",
+                    "time": 3360,
+                    "result": 1
+                },
+                {
+                    "problem": "G",
+                    "time": 4260,
+                    "result": 0
+                },
+                {
+                    "problem": "G",
+                    "time": 4620,
+                    "result": 1
+                },
+                {
+                    "problem": "J",
+                    "time": 5460,
+                    "result": 1
+                },
+                {
+                    "problem": "B",
+                    "time": 6180,
+                    "result": 1
+                },
+                {
+                    "problem": "E",
+                    "time": 8760,
+                    "result": 1
+                },
+                {
+                    "problem": "A",
+                    "time": 10200,
+                    "result": 1
+                },
+                {
+                    "problem": "F",
+                    "time": 11580,
+                    "result": 0
+                },
+                {
+                    "problem": "F",
+                    "time": 12900,
+                    "result": 1
+                },
+                {
+                    "problem": "D",
+                    "time": 15840,
+                    "result": 0
+                },
+                {
+                    "problem": "D",
+                    "time": 16680,
+                    "result": 0
+                },
+                {
+                    "problem": "D",
+                    "time": 17340,
+                    "result": 1
+                }
+            ]
+        },
+        {
+            "name": "Los Patrons",
+            "affiliation": "University of Oxford",
+            "country": "GBR",
+            "submissions": [
+                {
+                    "problem": "H",
+                    "time": 720,
+                    "result": 1
+                },
+                {
+                    "problem": "I",
+                    "time": 1080,
+                    "result": 1
+                },
+                {
+                    "problem": "K",
+                    "time": 1320,
+                    "result": 1
+                },
+                {
+                    "problem": "B",
+                    "time": 2280,
+                    "result": 1
+                },
+                {
+                    "problem": "C",
+                    "time": 3300,
+                    "result": 0
+                },
+                {
+                    "problem": "J",
+                    "time": 4320,
+                    "result": 1
+                },
+                {
+                    "problem": "C",
+                    "time": 5100,
+                    "result": 1
+                },
+                {
+                    "problem": "G",
+                    "time": 7800,
+                    "result": 0
+                },
+                {
+                    "problem": "A",
+                    "time": 8100,
+                    "result": 0
+                },
+                {
+                    "problem": "G",
+                    "time": 9420,
+                    "result": 1
+                },
+                {
+                    "problem": "E",
+                    "time": 10560,
+                    "result": 1
+                },
+                {
+                    "problem": "A",
+                    "time": 13020,
+                    "result": 1
+                },
+                {
+                    "problem": "F",
+                    "time": 14280,
+                    "result": 0
+                },
+                {
+                    "problem": "F",
+                    "time": 16080,
+                    "result": 1
+                },
+                {
+                    "problem": "D",
+                    "time": 17940,
+                    "result": 0
+                }
+            ]
+        },
+        {
+            "name": "Double Cycle Cover",
+            "affiliation": "University of Tartu",
+            "country": "EST",
+            "submissions": [
+                {
+                    "problem": "K",
+                    "time": 480,
+                    "result": 1
+                },
+                {
+                    "problem": "I",
+                    "time": 720,
+                    "result": 1
+                },
+                {
+                    "problem": "J",
+                    "time": 1020,
+                    "result": 0
+                },
+                {
+                    "problem": "J",
+                    "time": 1080,
+                    "result": 0
+                },
+                {
+                    "problem": "H",
+                    "time": 2100,
+                    "result": 1
+                },
+                {
+                    "problem": "J",
+                    "time": 3000,
+                    "result": 0
+                },
+                {
+                    "problem": "B",
+                    "time": 3780,
+                    "result": 1
+                },
+                {
+                    "problem": "E",
+                    "time": 6240,
+                    "result": 1
+                },
+                {
+                    "problem": "G",
+                    "time": 7560,
+                    "result": 0
+                },
+                {
+                    "problem": "G",
+                    "time": 8040,
+                    "result": 1
+                },
+                {
+                    "problem": "J",
+                    "time": 8760,
+                    "result": 0
+                },
+                {
+                    "problem": "J",
+                    "time": 9660,
+                    "result": 0
+                },
+                {
+                    "problem": "F",
+                    "time": 11580,
+                    "result": 1
+                },
+                {
+                    "problem": "C",
+                    "time": 12840,
+                    "result": 1
+                },
+                {
+                    "problem": "J",
+                    "time": 13320,
+                    "result": 0
+                },
+                {
+                    "problem": "J",
+                    "time": 13860,
+                    "result": 0
+                },
+                {
+                    "problem": "A",
+                    "time": 16020,
+                    "result": 1
+                },
+                {
+                    "problem": "J",
+                    "time": 16800,
+                    "result": 1
+                }
+            ]
+        },
+        {
+            "name": "Triniceratops",
+            "affiliation": "University of Cambridge",
+            "country": "GBR",
+            "submissions": [
+                {
+                    "problem": "H",
+                    "time": 360,
+                    "result": 1
+                },
+                {
+                    "problem": "I",
+                    "time": 600,
+                    "result": 1
+                },
+                {
+                    "problem": "K",
+                    "time": 960,
+                    "result": 1
+                },
+                {
+                    "problem": "C",
+                    "time": 1860,
+                    "result": 1
+                },
+                {
+                    "problem": "J",
+                    "time": 2220,
+                    "result": 0
+                },
+                {
+                    "problem": "B",
+                    "time": 3540,
+                    "result": 1
+                },
+                {
+                    "problem": "J",
+                    "time": 5580,
+                    "result": 1
+                },
+                {
+                    "problem": "G",
+                    "time": 9300,
+                    "result": 0
+                },
+                {
+                    "problem": "E",
+                    "time": 9540,
+                    "result": 1
+                },
+                {
+                    "problem": "A",
+                    "time": 10620,
+                    "result": 1
+                },
+                {
+                    "problem": "G",
+                    "time": 11820,
+                    "result": 1
+                },
+                {
+                    "problem": "F",
+                    "time": 14640,
+                    "result": 0
+                },
+                {
+                    "problem": "F",
+                    "time": 15360,
+                    "result": 0
+                },
+                {
+                    "problem": "F",
+                    "time": 16500,
+                    "result": 0
+                },
+                {
+                    "problem": "F",
+                    "time": 16680,
+                    "result": 0
+                },
+                {
+                    "problem": "F",
+                    "time": 17220,
+                    "result": 0
+                },
+                {
+                    "problem": "D",
+                    "time": 17640,
+                    "result": 0
+                },
+                {
+                    "problem": "F",
+                    "time": 17880,
+                    "result": 0
+                }
+            ]
+        }
+    ]
+}

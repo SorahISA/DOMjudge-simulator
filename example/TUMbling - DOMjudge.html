@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- DOMjudge version 10.0.0DEV/8535f48b1 -->
+    
+    <title>TUMbling - DOMjudge</title>
+    <link rel="icon" href="https://www.domjudge.org/demoweb/favicon.ico?v=10.0.0DEV/8535f48b1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./TUMbling - DOMjudge_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./TUMbling - DOMjudge_files/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./TUMbling - DOMjudge_files/scoreboard-category-color.css">
+    <script src="./TUMbling - DOMjudge_files/jquery.min.js.download"></script>
+    <script src="./TUMbling - DOMjudge_files/jquery.debounce.min.js.download"></script>
+    <script src="./TUMbling - DOMjudge_files/bootstrap.bundle.min.js.download"></script>
+
+    <script src="./TUMbling - DOMjudge_files/domjudge.js.download"></script>
+                    <link rel="stylesheet" href="./TUMbling - DOMjudge_files/style_domjudge.css">
+
+        
+    
+    <style>
+        .data-table td a, .data-table td a:hover {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            padding: 3px 5px;
+        }
+
+        .data-table tr {
+            border-bottom: 1px solid silver;
+        }
+
+        .data-table tr:hover {
+            background: #ffffcc !important;
+        }
+    </style>
+    </head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand hidden-sm-down" href="https://www.domjudge.org/demoweb/team">DOMjudge</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuDefault" aria-controls="menuDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="menuDefault" data-update-url="/demoweb/team/updates">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link active" href="https://www.domjudge.org/demoweb/team"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="nav-item">
+                                    <a class="nav-link" href="https://www.domjudge.org/demoweb/team/problems">
+                        <i class="fas fa-book-open"></i> Problemset
+                    </a>
+                            </li>
+                                        <li class="nav-item">
+                    <a class="nav-link" href="https://www.domjudge.org/demoweb/team/print"><i class="fas fa-file-alt"></i> Print</a>
+                </li>
+                                        <li class="nav-item">
+                    <a class="nav-link" href="https://www.domjudge.org/demoweb/team/scoreboard"><i class="fas fa-list-ol"></i> Scoreboard</a>
+                </li>
+                        
+                    </ul>
+
+        <div class="ml-auto me-3">
+            <a class="nav-link" id="notify_enable">
+                <span class="btn btn-warning btn-sm">
+                    <i class="fas fa-bell fa-fw"></i> Enable Notifications
+                </span>
+            </a>
+            <a class="nav-link d-none" id="notify_disable">
+                <span class="btn btn-secondary btn-sm">
+                    <i class="fas fa-bell-slash fa-fw"></i> Disable Notifications
+                </span>
+            </a>
+
+        </div>
+        <div class="ml-auto me-3">
+                            <a class="nav-link" data-ajax-modal="" data-ajax-modal-after="initSubmitModal" href="https://www.domjudge.org/demoweb/team/submit">
+                    <span class="btn btn-success btn-sm">
+                        <i class="fas fa-cloud-upload-alt"></i> Submit
+                    </span>
+                </a>
+                    </div>
+
+            <a class="btn btn-info btn-sm me-2" href="https://www.domjudge.org/demoweb/logout" onclick="return confirmLogout();">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+
+        <ul class="navbar-nav">
+                    </ul>
+
+        <div class="navbar-text" style="white-space:nowrap;">
+    <span style="padding-left: 10px;">
+        <i class="fas fa-clock loading-indicator"></i>
+    </span>
+        <span id="timeleft">contest over</span>
+</div>
+
+<script>
+    var initial = 1763980863;
+    var localInitial = new Date().getTime();
+    var activatetime = 1543050000;
+    var starttime = 1543136400;
+    var endtime = 1543154400;
+    var clientOffset = localInitial - new Date(initial * 1000).getTime();
+    var timeleftelt = document.getElementById("timeleft");
+
+    setInterval(function () {
+        updateClock();
+    }, 1000);
+    updateClock();
+</script>
+    </div>
+  </div>
+</nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                                    <div data-ajax-refresh-target="" data-ajax-refresh-after="setFlashAndProgress" data-ajax-refresh-before="saveFlash">
+        
+    <div id="teamscoresummary">
+                                        
+
+<table class="d-none d-md-table scoreboard desktop-scoreboard center ">
+
+                        
+        <colgroup>
+                                    <col id="scoremedal">
+                        <col id="scorerank">
+                            <col id="scoreflags">
+                                <col id="scoreteamname">
+    </colgroup>
+            <colgroup>
+            <col id="scoresolv">
+                            <col id="scoretotal">
+                    </colgroup>
+        <colgroup>
+                                    <col class="scoreprob">
+                            <col class="scoreprob">
+                            <col class="scoreprob">
+                            <col class="scoreprob">
+                            <col class="scoreprob">
+                            <col class="scoreprob">
+                            <col class="scoreprob">
+                            <col class="scoreprob">
+                            <col class="scoreprob">
+                            <col class="scoreprob">
+                            <col class="scoreprob">
+                        </colgroup>
+    <thead>
+    <tr class="scoreheader" data-static="">
+                    <th title="rank" scope="col" colspan="2">rank</th>
+                <th title="team name" scope="col" colspan="2">team</th>
+                                    <th title="# solved / penalty time" colspan="2" scope="col">score</th>
+                                                                                                                                                                                                                                                                        <th title="problem Access Points" scope="col" data-problem-external-id="accesspoints" data-problem-name="Access Points" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #FF0000; border: 1px solid #bf0000&quot;&gt;&lt;span style=&quot;color: #ffffff;&quot;&gt;A&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/39/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #FF0000; border: 1px solid #bf0000"><span style="color: #ffffff;">A</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Brexit Negotiations" scope="col" data-problem-external-id="brexitnegotiations" data-problem-name="Brexit Negotiations" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #0422D8; border: 1px solid #000098&quot;&gt;&lt;span style=&quot;color: #ffffff;&quot;&gt;B&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/40/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #0422D8; border: 1px solid #000098"><span style="color: #ffffff;">B</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Circuit Board Design" scope="col" data-problem-external-id="circuitdesign" data-problem-name="Circuit Board Design" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #008100; border: 1px solid #004100&quot;&gt;&lt;span style=&quot;color: #ffffff;&quot;&gt;C&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/41/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #008100; border: 1px solid #004100"><span style="color: #ffffff;">C</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Date Pickup" scope="col" data-problem-external-id="datepickup" data-problem-name="Date Pickup" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #FE9DAF; border: 1px solid #be5d6f&quot;&gt;&lt;span style=&quot;color: #000000;&quot;&gt;D&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/42/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #FE9DAF; border: 1px solid #be5d6f"><span style="color: #000000;">D</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Equality Control" scope="col" data-problem-external-id="equality" data-problem-name="Equality Control" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #52AD00; border: 1px solid #126d00&quot;&gt;&lt;span style=&quot;color: #ffffff;&quot;&gt;E&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/43/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #52AD00; border: 1px solid #126d00"><span style="color: #ffffff;">E</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Fastest Speedrun" scope="col" data-problem-external-id="fastestspeedrun" data-problem-name="Fastest Speedrun" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #62C6E8; border: 1px solid #2286a8&quot;&gt;&lt;span style=&quot;color: #000000;&quot;&gt;F&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/44/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #62C6E8; border: 1px solid #2286a8"><span style="color: #000000;">F</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Game Design" scope="col" data-problem-external-id="gamedesign" data-problem-name="Game Design" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #FF7109; border: 1px solid #bf3100&quot;&gt;&lt;span style=&quot;color: #ffffff;&quot;&gt;G&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/45/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #FF7109; border: 1px solid #bf3100"><span style="color: #ffffff;">G</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Hard Drive" scope="col" data-problem-external-id="harddrive" data-problem-name="Hard Drive" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #6A0AC6; border: 1px solid #2a0086&quot;&gt;&lt;span style=&quot;color: #ffffff;&quot;&gt;H&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/46/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #6A0AC6; border: 1px solid #2a0086"><span style="color: #ffffff;">H</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Inflation" scope="col" data-problem-external-id="inflation" data-problem-name="Inflation" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #FEE13B; border: 1px solid #bea100&quot;&gt;&lt;span style=&quot;color: #000000;&quot;&gt;I&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/47/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #FEE13B; border: 1px solid #bea100"><span style="color: #000000;">I</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Jinxed Betting" scope="col" data-problem-external-id="jinxedbetting" data-problem-name="Jinxed Betting" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #C88FDE; border: 1px solid #884f9e&quot;&gt;&lt;span style=&quot;color: #000000;&quot;&gt;J&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/48/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #C88FDE; border: 1px solid #884f9e"><span style="color: #000000;">J</span></span>
+                                            </a>
+                </th>
+                                                                                                                                                                                                                                            <th title="problem Kleptography" scope="col" data-problem-external-id="kleptography" data-problem-name="Kleptography" data-problem-badge="&lt;span class=&quot;badge problem-badge&quot; style=&quot;background-color: #000000; border: 1px solid #000000&quot;&gt;&lt;span style=&quot;color: #ffffff;&quot;&gt;K&lt;/span&gt;&lt;/span&gt;">
+                    <a href="https://www.domjudge.org/demoweb/team/problems/49/statement" target="_blank">
+                        <span class="badge problem-badge" style="background-color: #000000; border: 1px solid #000000"><span style="color: #ffffff;">K</span></span>
+                                            </a>
+                </th>
+                        </tr>
+    </thead>
+    <tbody>
+                                                                                            
+                        
+                                            <tr class="sortorderswitch" data-team-id="16" data-team-external-id="16" data-team-name="TUMbling">
+                                                <td class="no-border">
+                                            </td>
+                                <td class="scorepl rank">
+                                                                5
+                                                        </td>
+                                                                                <td class="scoreaf cl_FFFFFF">
+                                                                                                            <a>
+                            <img loading="lazy" src="./TUMbling - DOMjudge_files/de.svg" alt="DEU" title="Germany" class="countryflag">
+                        </a>
+                                                </td>
+                                    <td class="scoretn cl_FFFFFF" title="TUMbling">
+                                                                                                                                                                        <a data-ajax-modal="" href="https://www.domjudge.org/demoweb/team/team/16">
+                    <span class="forceWidth">
+                                                TUMbling
+                    </span>
+                                            <span class="univ forceWidth">
+                                                            Technische Universitaet Muenchen
+                                                    </span>
+                                    </a>
+            </td>
+                                                                    <td class="scorenc">9</td>
+                                                            <td class="scorett">835</td>
+                                                
+                                                                                                                                                                                                                                                                                    
+                                        
+                                                                                                                                                                                    
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_correct">
+                                                                            188                                                                        <span>
+                                                                                    1 try
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                                                                                                                                                                                                                                                        
+                                        
+                                                                                                                                                                                    
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_correct">
+                                                                            49                                                                        <span>
+                                                                                    1 try
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                                                                                                                                                                                                                                                        
+                                        
+                                                                                                                                                                                    
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_correct">
+                                                                            74                                                                        <span>
+                                                                                    2 tries
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                                                                                                    
+                                        
+                                                            
+                                                            
+                    <td class="score_cell">
+                                            </td>
+                                                                                                                                                                                                                                                                        
+                                        
+                                                                                                                                                                                    
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_correct">
+                                                                            161                                                                        <span>
+                                                                                    1 try
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                                                                                                                                                
+                                        
+                                                            
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_incorrect">
+                                                                            &nbsp;                                                                        <span>
+                                                                                    5 tries
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                                                                                                                                                                                                                                                        
+                                        
+                                                                                                                                                                                    
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_correct">
+                                                                            125                                                                        <span>
+                                                                                    1 try
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                                                                                                                                                                                                                                                        
+                                        
+                                                                                                                                                                                    
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_correct">
+                                                                            23                                                                        <span>
+                                                                                    1 try
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                                                                                                                                                                                                                                                        
+                                        
+                                                                                                                                                                                    
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_correct">
+                                                                            12                                                                        <span>
+                                                                                    1 try
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                                                                                                                                                                                                                                                        
+                                        
+                                                                                                                                                                                    
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_correct">
+                                                                            147                                                                        <span>
+                                                                                    2 tries
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                                                                                                                                                                                                                                                        
+                                        
+                                                                                                                                                                                    
+                                                            
+                    <td class="score_cell">
+                                                    <a>
+                                <div class="score_correct">
+                                                                            16                                                                        <span>
+                                                                                    1 try
+                                                                            </span>
+                                </div>
+                            </a>
+                                            </td>
+                                    </tr>
+    
+            </tbody>
+</table>
+
+<table class="d-md-none scoreboard mobile-scoreboard center ">
+        <colgroup>
+                    <col id="scorerankmobile">
+                            <col id="scoreflagsmobile">
+                                <col id="scoreteamnamemobile">
+    </colgroup>
+            <colgroup>
+            <col id="scoresolvmobile">
+        </colgroup>
+        <thead>
+
+            
+    <tr class="scoreheader" data-static="" style="font-size: 75%;">
+                    <th title="rank" scope="col">rank</th>
+                <th title="team name" scope="col" colspan="2">team</th>
+                    <th title="# solved / penalty time" colspan="1" scope="col">score</th>
+            </tr>
+    </thead>
+    <tbody>
+                                                    
+            
+                        <tr class="sortorderswitch" data-team-id="16" data-team-external-id="16" data-team-name="TUMbling" style="border-bottom-width: 0; height: 28px;">
+                    <td class="scorepl">
+                            </td>
+                                                        <td class="scoreaf cl_FFFFFF">
+                                                                                        <a>
+                        <img loading="lazy" src="./TUMbling - DOMjudge_files/de.svg" alt="DEU" title="Germany" class="countryflag">
+                    </a>
+                                    </td>
+                        <td class="scoretn cl_FFFFFF" title="TUMbling">
+                                                                                                <a data-ajax-modal="" href="https://www.domjudge.org/demoweb/team/team/16">
+                    <span class="forceWidth">
+                                                TUMbling
+                    </span>
+                            <span class="univ forceWidth">
+                                                            Technische Universitaet Muenchen
+                                                    </span>
+                    </a>
+        </td>
+                                                        <td class="scorenc" rowspan="2">9<br><span class="scorett" style="font-weight: normal;">835</span></td>
+            </tr>
+        <tr style="height: 32px;">
+            <td>
+                                <span class="d-block me-2 rank">
+                                            5
+                                    </span>
+                            </td>
+                                                                <td colspan="2">
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #FF0000; min-width: 18px; border: 1px solid #bf0000;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/accesspoints.json" data-team-id="16" data-problem-id="accesspoints">
+    <span style="color: #ffffff;">A</span>
+</span>
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #0422D8; min-width: 18px; border: 1px solid #000098;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/brexitnegotiations.json" data-team-id="16" data-problem-id="brexitnegotiations">
+    <span style="color: #ffffff;">B</span>
+</span>
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #008100; min-width: 18px; border: 1px solid #004100;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/circuitdesign.json" data-team-id="16" data-problem-id="circuitdesign">
+    <span style="color: #ffffff;">C</span>
+</span>
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #F5F5F5; min-width: 18px; border: 1px solid linen;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/datepickup.json" data-team-id="16" data-problem-id="datepickup">
+    <span style="color: silver;">D</span>
+</span>
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #52AD00; min-width: 18px; border: 1px solid #126d00;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/equality.json" data-team-id="16" data-problem-id="equality">
+    <span style="color: #ffffff;">E</span>
+</span>
+                                                        <span><span class="strike-diagonal"><span class="badge problem-badge" style="font-size: x-small; background-color: #F5F5F5; min-width: 18px; border: 1px solid linen;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/fastestspeedrun.json" data-team-id="16" data-problem-id="fastestspeedrun">
+    <span style="color: silver;">F</span>
+</span></span></span>
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #FF7109; min-width: 18px; border: 1px solid #bf3100;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/gamedesign.json" data-team-id="16" data-problem-id="gamedesign">
+    <span style="color: #ffffff;">G</span>
+</span>
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #6A0AC6; min-width: 18px; border: 1px solid #2a0086;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/harddrive.json" data-team-id="16" data-problem-id="harddrive">
+    <span style="color: #ffffff;">H</span>
+</span>
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #FEE13B; min-width: 18px; border: 1px solid #bea100;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/inflation.json" data-team-id="16" data-problem-id="inflation">
+    <span style="color: #000000;">I</span>
+</span>
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #C88FDE; min-width: 18px; border: 1px solid #884f9e;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/jinxedbetting.json" data-team-id="16" data-problem-id="jinxedbetting">
+    <span style="color: #000000;">J</span>
+</span>
+                                                        <span class="badge problem-badge" style="font-size: x-small; background-color: #000000; min-width: 18px; border: 1px solid #000000;" data-submissions-url="/demoweb/public/submissions-data/team/16/problem/kleptography.json" data-team-id="16" data-problem-id="kleptography">
+    <span style="color: #ffffff;">K</span>
+</span>
+                            </td>
+        </tr>
+        </tbody>
+</table>
+
+
+
+<script>
+    document.querySelectorAll(".forceWidth:not(.toolong)").forEach(el => {
+        if (el instanceof Element && el.scrollWidth > el.offsetWidth) {
+            el.classList.add("toolong");
+        }
+    });
+</script>
+    </div>
+
+    <div class="mt-4" data-flash-messages="">
+                                    </div>
+
+    <div class="row">
+        <div class="col">
+            <h1 class="teamoverview">Submissions</h1>
+
+            
+    <table class="data-table table table-hover table-sm submissions-table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">time</th>
+            <th scope="col">problem</th>
+            <th scope="col">lang</th>
+            <th scope="col">result</th>
+                                </tr>
+        </thead>
+        <tbody>                        
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen">
+                        10:05
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" title="Access Points">
+                        <span class="badge problem-badge" style="background-color: #FF0000; border: 1px solid #bf0000"><span style="color: #ffffff;">A</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen">                            <span class="sol sol_queued">too-late</span>                    </a>
+                </td>
+                            </tr>                        
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen">
+                        03:12
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" title="Access Points">
+                        <span class="badge problem-badge" style="background-color: #FF0000; border: 1px solid #bf0000"><span style="color: #ffffff;">A</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen">                            <span class="sol sol_queued">too-late</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9661">
+                        13:59
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9661" title="Fastest Speedrun">
+                        <span class="badge problem-badge" style="background-color: #62C6E8; border: 1px solid #2286a8"><span style="color: #000000;">F</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9661" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9661"><span class="sol sol_incorrect">wrong-answer</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9417">
+                        13:38
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9417" title="Fastest Speedrun">
+                        <span class="badge problem-badge" style="background-color: #62C6E8; border: 1px solid #2286a8"><span style="color: #000000;">F</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9417" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9417"><span class="sol sol_incorrect">wrong-answer</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9337">
+                        13:25
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9337" title="Fastest Speedrun">
+                        <span class="badge problem-badge" style="background-color: #62C6E8; border: 1px solid #2286a8"><span style="color: #000000;">F</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9337" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9337"><span class="sol sol_incorrect">wrong-answer</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9259">
+                        13:11
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9259" title="Fastest Speedrun">
+                        <span class="badge problem-badge" style="background-color: #62C6E8; border: 1px solid #2286a8"><span style="color: #000000;">F</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9259" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9259"><span class="sol sol_incorrect">wrong-answer</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9132">
+                        12:43
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9132" title="Fastest Speedrun">
+                        <span class="badge problem-badge" style="background-color: #62C6E8; border: 1px solid #2286a8"><span style="color: #000000;">F</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9132" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/9132"><span class="sol sol_incorrect">wrong-answer</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8991">
+                        12:08
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8991" title="Access Points">
+                        <span class="badge problem-badge" style="background-color: #FF0000; border: 1px solid #bf0000"><span style="color: #ffffff;">A</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8991" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8991"><span class="sol sol_correct">correct</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8892">
+                        11:41
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8892" title="Equality Control">
+                        <span class="badge problem-badge" style="background-color: #52AD00; border: 1px solid #126d00"><span style="color: #ffffff;">E</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8892" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8892"><span class="sol sol_correct">correct</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8842">
+                        11:27
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8842" title="Jinxed Betting">
+                        <span class="badge problem-badge" style="background-color: #C88FDE; border: 1px solid #884f9e"><span style="color: #000000;">J</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8842" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8842"><span class="sol sol_correct">correct</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8781">
+                        11:11
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8781" title="Jinxed Betting">
+                        <span class="badge problem-badge" style="background-color: #C88FDE; border: 1px solid #884f9e"><span style="color: #000000;">J</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8781" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8781"><span class="sol sol_incorrect">wrong-answer</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8753">
+                        11:05
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8753" title="Game Design">
+                        <span class="badge problem-badge" style="background-color: #FF7109; border: 1px solid #bf3100"><span style="color: #ffffff;">G</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8753" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8753"><span class="sol sol_correct">correct</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8555">
+                        10:14
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8555" title="Circuit Board Design">
+                        <span class="badge problem-badge" style="background-color: #008100; border: 1px solid #004100"><span style="color: #ffffff;">C</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8555" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8555"><span class="sol sol_correct">correct</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8514">
+                        10:06
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8514" title="Circuit Board Design">
+                        <span class="badge problem-badge" style="background-color: #008100; border: 1px solid #004100"><span style="color: #ffffff;">C</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8514" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8514"><span class="sol sol_incorrect">wrong-answer</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8413">
+                        09:49
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8413" title="Brexit Negotiations">
+                        <span class="badge problem-badge" style="background-color: #0422D8; border: 1px solid #000098"><span style="color: #ffffff;">B</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8413" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8413"><span class="sol sol_correct">correct</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8227">
+                        09:23
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8227" title="Hard Drive">
+                        <span class="badge problem-badge" style="background-color: #6A0AC6; border: 1px solid #2a0086"><span style="color: #ffffff;">H</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8227" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8227"><span class="sol sol_correct">correct</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8159">
+                        09:16
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8159" title="Kleptography">
+                        <span class="badge problem-badge" style="background-color: #000000; border: 1px solid #000000"><span style="color: #ffffff;">K</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8159" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8159"><span class="sol sol_correct">correct</span>                    </a>
+                </td>
+                            </tr>                                                    
+                                    <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8106">
+                        09:12
+                    </a>
+                </td>
+                <td class="probid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8106" title="Inflation">
+                        <span class="badge problem-badge" style="background-color: #FEE13B; border: 1px solid #bea100"><span style="color: #000000;">I</span></span>
+                    </a>
+                </td>
+                <td class="langid">
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8106" title="C++">
+                        cpp
+                    </a>
+                </td>
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/submission/8106"><span class="sol sol_correct">correct</span>                    </a>
+                </td>
+                            </tr>        </tbody>
+    </table>
+        </div>
+        <div class="col">
+            <h1 class="teamoverview">Clarifications</h1>
+                            
+<div class="table-wrapper">
+    <table class="data-table table table-hover table-sm" style="width:100%;">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">time</th>
+                            <th scope="col">subject</th>
+                        <th scope="col">to</th>
+            <th scope="col">text</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/188">
+                        13:55
+                    </a>
+                </td>
+
+                                    <td>
+                        <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/188">General issue</a>
+                    </td>
+                
+                <td>                        all</td>
+
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/188">
+                        <i>When the contest ends at 15:00, please take everything with you: keyboard, tcr's, mugs, writing pads, pens, printouts, t…
+</i>
+                    </a>
+                </td>
+            </tr>
+            <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/174">
+                        12:23
+                    </a>
+                </td>
+
+                                    <td>
+                        <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/174">General issue</a>
+                    </td>
+                
+                <td>                        all</td>
+
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/174">
+                        <i>If you want some more food, go downstairs and take it. First come, first serve. All remaining food will be removed after…
+</i>
+                    </a>
+                </td>
+            </tr>
+            <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/172">
+                        12:21
+                    </a>
+                </td>
+
+                                    <td>
+                        <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/172"><span class="badge problem-badge" style="background-color: #C88FDE; border: 1px solid #884f9e"><span style="color: #000000;">J</span></span></a>
+                    </td>
+                
+                <td>                        all</td>
+
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/172">
+                        <i>Yes. In every round, every bettor will place a bet.
+</i>
+                    </a>
+                </td>
+            </tr>
+            <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/155">
+                        10:50
+                    </a>
+                </td>
+
+                                    <td>
+                        <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/155">General issue</a>
+                    </td>
+                
+                <td>                        all</td>
+
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/155">
+                        <i>Dear teams,
+Lunch is being served starting 12:00, it is located where the dinner was yesterday.
+You have two (2) ho…
+</i>
+                    </a>
+                </td>
+            </tr>
+            <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/151">
+                        10:28
+                    </a>
+                </td>
+
+                                    <td>
+                        <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/151">General issue</a>
+                    </td>
+                
+                <td>                        all</td>
+
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/151">
+                        <i>Whenever you want to eat the food on your tables, please take it just outside the room before eating it.
+Eating insid…
+</i>
+                    </a>
+                </td>
+            </tr>
+            <tr class="">
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/144">
+                        09:45
+                    </a>
+                </td>
+
+                                    <td>
+                        <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/144"><span class="badge problem-badge" style="background-color: #62C6E8; border: 1px solid #2286a8"><span style="color: #000000;">F</span></span></a>
+                    </td>
+                
+                <td>                        all</td>
+
+                <td>
+                    <a data-ajax-modal="" data-ajax-modal-after="markSeen" href="https://www.domjudge.org/demoweb/team/clarifications/144">
+                        <i>You can have multiple items in your inventory at the same time. You can equip an item as many times as you like, so lo…
+</i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+            
+            <h1 class="teamoverview">Clarification Requests</h1>
+                            <p class="nodata">No clarification request.</p>
+            
+            <div class="m-1">
+                <a href="https://www.domjudge.org/demoweb/team/clarifications/add" class="btn btn-secondary btn-sm" data-ajax-modal="" data-ajax-modal-after="initModalClarificationPreviewAdd">
+                    Request clarification
+                </a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+            var domjudge_base_url = "/demoweb";
+        var markdownPreviewUrl = "/demoweb/markdown-preview";
+    $(function () {
+        /* toggle refresh if set */
+                $('#refresh-navitem').on('click', function () {
+            toggleRefresh('', 30, 1);
+        });
+                /* Enable page refresh if set if wanted by the page, and wanted by the user */
+                enableRefresh('', 30, 1);
+        
+        initializeAjaxModals();
+    });
+</script>
+    <script>
+    function getMainExtension(ext) {
+        switch (ext) {
+                                            case 'c':
+                return 'c';
+                                                            case 'cpp':
+                return 'cpp';
+                            case 'cc':
+                return 'cpp';
+                            case 'cxx':
+                return 'cpp';
+                            case 'c++':
+                return 'cpp';
+                                                            case 'java':
+                return 'java';
+                                                            case 'kt':
+                return 'kt';
+                                                            case 'py2':
+                return 'py2';
+                            case 'py':
+                return 'py2';
+                                                            case 'py3':
+                return 'py3';
+                                            default:
+                return '';
+        }
+    }
+
+    function getEntryPoint(mainext) {
+        switch (mainext) {
+                                                                                                            case 'java':
+                return 'Main class';
+                                                            case 'kt':
+                return 'Main class';
+                                                            case 'py2':
+                return 'Main file';
+                                                            case 'py3':
+                return 'Main file';
+                                            default:
+                return '';
+        }
+    }
+</script>
+<script>
+    function entryPointDetectJava(filename) {
+        return filename.replace(/\.[^\.]*$/, '');
+    }
+
+    function entryPointDetectKt(filename) {
+        var filebase = filename.replace(/\.[^\.]*$/, '');
+        if (filebase === '') return '_Kt';
+
+        filebase = filebase.replace(/[^a-zA-Z0-9]/, '_');
+        if (filebase.charAt(0).match(/^[a-zA-Z]$/)) {
+            return filebase.charAt(0).toUpperCase() + filebase.slice(1) + 'Kt';
+        } else {
+            return '_' + filebase + 'Kt';
+        }
+    }
+
+    function maybeShowEntryPoint(filename) {
+        var langid = $('#submit_problem_language').val();
+        if (langid === "") {
+            return;
+        }
+        var $entryPoint = $('[data-entry-point]');
+        var $entryPointLabel = $entryPoint.find('label');
+        var $entryPointInput = $entryPoint.find('input');
+        var entryPointDescription = getEntryPoint(langid);
+        if (entryPointDescription) {
+            $entryPoint.show();
+        } else {
+            $entryPoint.hide();
+        }
+
+        if (entryPointDescription) {
+            var $labelChildren = $entryPointLabel.children();
+            $entryPointLabel.text(entryPointDescription).append($labelChildren);
+            $entryPointInput.attr('required', 'required');
+        } else {
+            $entryPointInput.attr('required', null);
+        }
+
+        if (entryPointDescription && filename) {
+            switch (langid) {
+                case 'java':
+                    $entryPointInput.val(entryPointDetectJava(filename));
+                    break;
+                case 'kt':
+                    $entryPointInput.val(entryPointDetectKt(filename));
+                    break;
+                default:
+                    $entryPointInput.val(filename);
+            }
+        } else {
+            $entryPointInput.val('');
+        }
+    }
+
+    $(function () {
+        var $entryPoint = $('[data-entry-point]');
+        $entryPoint.hide();
+
+        var processFile = function () {
+            var filename = $('#submit_problem_code').val();
+            if (filename !== '' && filename !== undefined) {
+                filename = filename.replace(/^.*[\\\/]/, '');
+                var parts = filename.split('.').reverse();
+                if (parts.length < 2) return;
+                var lcParts = [parts[0].toLowerCase(), parts[1].toLowerCase()];
+
+                // language ID
+
+                var language = document.getElementById('submit_problem_language');
+                // the "autodetect" option has empty value
+                if (language.value !== '') return;
+
+                var langid = getMainExtension(lcParts[0]);
+                for (i = 0; i < language.length; i++) {
+                    if (language.options[i].value === langid) {
+                        language.selectedIndex = i;
+                    }
+                }
+
+                maybeShowEntryPoint(filename);
+
+                // Problem ID
+
+                var problem = document.getElementById('submit_problem_problem');
+                // the "autodetect" option has empty value
+                if (problem.value !== '') {
+                    return;
+                }
+
+                for (var i = 0; i < problem.length; i++) {
+                    if (problem.options[i].text.split(/ - /)[0].toLowerCase() === lcParts[1]) {
+                        problem.selectedIndex = i;
+                    }
+                }
+            }
+        };
+
+        var $body = $('body');
+        $body.on('change', '#submit_problem_code', processFile);
+        $body.on('change', '#submit_problem_language', function () {
+            maybeShowEntryPoint();
+        });
+
+        $body.on('submit', 'form[name=submit_problem]', function () {
+            var langelt = document.getElementById("submit_problem_language");
+            var language = langelt.options[langelt.selectedIndex].value;
+            var languagetxt = langelt.options[langelt.selectedIndex].text;
+            var fileelt = document.getElementById("submit_problem_code");
+            var filenames = fileelt.files;
+            var filename = filenames[0].name;
+            var probelt = document.getElementById("submit_problem_problem");
+            var problem = probelt.options[probelt.selectedIndex].value;
+            var problemtxt = probelt.options[probelt.selectedIndex].text;
+
+            var error = false;
+            if (language === "") {
+                langelt.focus();
+                langelt.className = langelt.className + " errorfield";
+                error = true;
+            }
+            if (problem === "") {
+                probelt.focus();
+                probelt.className = probelt.className + " errorfield";
+                error = true;
+            }
+            if (filename === "") {
+                error = true;
+            }
+            if (error) return false;
+
+            var auxfileno = 0;
+            // start at one; skip maincode file field
+            for (var i = 1; i < filenames.length; i++) {
+                if (filenames[i].value !== "") {
+                    auxfileno++;
+                }
+            }
+            var extrafiles = '';
+            if (auxfileno > 0) {
+                extrafiles = "Additional source files: " + auxfileno + '\n';
+            }
+            var question =
+                'Main source file: ' + filename + '\n' +
+                extrafiles + '\n' +
+                'Problem: ' + problemtxt + '\n' +
+                'Language: ' + languagetxt + '\n' +
+                '\nMake submission?';
+            return confirm(question);
+        });
+
+        processFile();
+        maybeShowEntryPoint();
+
+        window.initSubmitModal = function ($elem) {
+            $('[data-entry-point]').hide();
+        };
+    });
+</script>
+
+    <script>
+        $(function () {
+            var $body = $('body');
+            $body.on('submit', 'form[name=team_clarification]', function () {
+                return confirm("Send clarification request to Jury?");
+            });
+
+            window.replaceClarificationReplyButton = function() {
+                var $replyButton = $('#clarification-reply-button');
+                var $submitButton = $('<button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-envelope"></i> Send</button>');
+                $replyButton.replaceWith($submitButton);
+
+                $submitButton.on('click', function() {
+                    var $form = $('form[name="team_clarification"]');
+                    if ($form[0].reportValidity()) {
+                        $form.submit();
+                    }
+                });
+            }
+
+            $body.on('click', '#clarification-reply-button', function() {
+                replaceClarificationReplyButton();
+            });
+
+            /* Show the notification options if the browser supports it */
+            if ('Notification' in window) {
+                $('#notify_disable').click(disableNotifications);
+                $('#notify_enable').click(enableNotifications);
+                if (getCookie('domjudge_notify') != 1) {
+                    $('#notify_enable').removeClass('d-none');
+                } else {
+                    $('#notify_disable').removeClass('d-none');
+                }
+            }
+            updateClarifications();
+            setInterval(updateClarifications, 20000);
+        });
+
+    </script>
+    <script>
+        var $flash = null;
+
+        function saveFlash() {
+            $flash = $('[data-flash-messages]').children();
+        }
+
+        function setFlashAndProgress() {
+            var $newProgress = $('[data-ajax-refresh-target] > [data-progress-bar]');
+            if ($newProgress.length) {
+                var $oldProgress = $('body > [data-progress-bar]');
+                $oldProgress.html($newProgress.children());
+                $newProgress.remove();
+            }
+
+            $('[data-flash-messages]').html($flash);
+        }
+
+        window.initModalClarificationPreviewAdd = function() {
+            setupPreviewClarification($('#team_clarification_message') , $('#messagepreview'), false);
+        };
+
+        function markSeen($elem) {
+            $elem.closest('tr').removeClass('unseen');
+
+            // Also preview the clarification reply
+            setupPreviewClarification($('#team_clarification_message') , $('#messagepreview'), true);
+        }
+    </script>
+
+
+</body></html>

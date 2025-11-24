@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOMjudge Control</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="css/scoreboard-category-color.css">
+  <link rel="stylesheet" href="css/style_domjudge.css">
+  <link rel="stylesheet" href="css/scoreboard.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand hidden-sm-down" href="index.html">DOMjudge</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuDefault" aria-controls="menuDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuDefault">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="html/home.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/problemset.html"><i class="fas fa-book-open"></i> Problemset</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/print.html"><i class="fas fa-file-alt"></i> Print</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/scoreboard.html"><i class="fas fa-list-ol"></i> Scoreboard</a>
+          </li>
+        </ul>
+
+        <div class="navbar-text me-3">
+          <a class="nav-link" data-go-home href="html/home.html">
+            <span class="btn btn-warning btn-sm">
+              <i class="fas fa-bell fa-fw"></i> Enable Notifications
+            </span>
+          </a>
+        </div>
+        <div class="navbar-text me-3">
+          <a class="nav-link" href="#" data-submit-modal>
+            <span class="btn btn-success btn-sm">
+              <i class="fas fa-cloud-upload-alt"></i> Submit
+            </span>
+          </a>
+        </div>
+        <a class="btn btn-info btn-sm me-2" data-go-home href="html/home.html">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+        <div class="navbar-text" style="white-space:nowrap;">
+          <span style="padding-left: 10px;">
+            <i class="fas fa-clock loading-indicator"></i>
+          </span>
+          <span id="timeleft">contest over</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid mt-3">
+    <div class="card">
+      <div class="card-header">Team setup</div>
+      <div class="card-body">
+        <form id="team-form">
+          <div class="row g-3">
+            <div class="col-md-4 col-sm-6">
+              <label class="form-label text-muted" for="team-name">Team name</label>
+              <input class="form-control" id="team-name" placeholder="Your team" required>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <label class="form-label text-muted" for="team-affil">Affiliation</label>
+              <input class="form-control" id="team-affil" placeholder="University" required>
+            </div>
+            <div class="col-md-4 col-sm-6 align-self-end">
+              <button class="btn btn-primary" type="submit">Save team</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Contest setup</div>
+      <div class="card-body">
+        <form id="contest-form">
+          <div class="row g-3">
+            <div class="col-md-4 col-sm-6">
+              <label class="form-label text-muted" for="contest-start">Contest start (local time)</label>
+              <input class="form-control" id="contest-start" type="datetime-local">
+            </div>
+            <div class="col-md-3 col-sm-6 align-self-end">
+              <button class="btn btn-primary" type="submit">Save start time</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">Contest data (json-format.json)</div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-lg-4 col-md-6">
+            <p class="text-muted mb-2">Import contest data (json-format.json).</p>
+            <input type="file" class="form-control mb-2" id="contest-file" accept=".json">
+            <button class="btn btn-primary" id="import-file-btn" type="button">Import file</button>
+            <div class="mt-2 d-flex gap-2">
+              <button class="btn btn-outline-secondary btn-sm" id="export-file" type="button">Export file</button>
+              <button class="btn btn-outline-secondary btn-sm" id="copy-clipboard" type="button">Copy to clipboard</button>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-6">
+            <form id="import-form">
+              <label class="form-label text-muted" for="contest-json">Paste contest JSON (json-format.json)</label>
+              <textarea class="form-control" id="contest-json" rows="6" placeholder='{"contest":{"name":"Testing Contest","length":3600,"freeze":1800,"medals":[4,4,4],"n_problems":3,"problems":[{"short":"A","name":"Hello World!","code":"helloworld","color":"#FF0000","border":"#bf0000"},{"short":"B","name":"A + B Problem","code":"aplusb","color":"#00FF00","border":"#00bf00"},{"short":"C","name":"A * B Problem","code":"atimesb","color":"#0000FF","border":"#0000bf"}]},"contestant":[]}'></textarea>
+              <div class="mt-2">
+                <button class="btn btn-outline-secondary" type="submit">Import</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/state.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/modal-submit.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

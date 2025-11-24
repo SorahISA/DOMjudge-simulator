@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- DOMjudge version 10.0.0DEV/8535f48b1 -->
+    
+    <title>Print - DOMjudge</title>
+    <link rel="icon" href="https://www.domjudge.org/demoweb/favicon.ico?v=10.0.0DEV/8535f48b1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="./Print - DOMjudge_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Print - DOMjudge_files/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./Print - DOMjudge_files/scoreboard-category-color.css">
+    <script src="./Print - DOMjudge_files/jquery.min.js.download"></script>
+    <script src="./Print - DOMjudge_files/jquery.debounce.min.js.download"></script>
+    <script src="./Print - DOMjudge_files/bootstrap.bundle.min.js.download"></script>
+
+    <script src="./Print - DOMjudge_files/domjudge.js.download"></script>
+                <link rel="stylesheet" href="./Print - DOMjudge_files/style_domjudge.css">
+
+        
+        </head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand hidden-sm-down" href="https://www.domjudge.org/demoweb/team">DOMjudge</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuDefault" aria-controls="menuDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="menuDefault" data-update-url="/demoweb/team/updates">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.domjudge.org/demoweb/team"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="nav-item">
+                                    <a class="nav-link" href="https://www.domjudge.org/demoweb/team/problems">
+                        <i class="fas fa-book-open"></i> Problemset
+                    </a>
+                            </li>
+                                        <li class="nav-item">
+                    <a class="nav-link active" href="https://www.domjudge.org/demoweb/team/print"><i class="fas fa-file-alt"></i> Print</a>
+                </li>
+                                        <li class="nav-item">
+                    <a class="nav-link" href="https://www.domjudge.org/demoweb/team/scoreboard"><i class="fas fa-list-ol"></i> Scoreboard</a>
+                </li>
+                        
+                    </ul>
+
+        <div class="ml-auto me-3">
+            <a class="nav-link" id="notify_enable">
+                <span class="btn btn-warning btn-sm">
+                    <i class="fas fa-bell fa-fw"></i> Enable Notifications
+                </span>
+            </a>
+            <a class="nav-link d-none" id="notify_disable">
+                <span class="btn btn-secondary btn-sm">
+                    <i class="fas fa-bell-slash fa-fw"></i> Disable Notifications
+                </span>
+            </a>
+
+        </div>
+        <div class="ml-auto me-3">
+                            <a class="nav-link" data-ajax-modal="" data-ajax-modal-after="initSubmitModal" href="https://www.domjudge.org/demoweb/team/submit">
+                    <span class="btn btn-success btn-sm">
+                        <i class="fas fa-cloud-upload-alt"></i> Submit
+                    </span>
+                </a>
+                    </div>
+
+            <a class="btn btn-info btn-sm me-2" href="https://www.domjudge.org/demoweb/logout" onclick="return confirmLogout();">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+
+        <ul class="navbar-nav">
+                    </ul>
+
+        <div class="navbar-text" style="white-space:nowrap;">
+    <span style="padding-left: 10px;">
+        <i class="fas fa-clock loading-indicator"></i>
+    </span>
+        <span id="timeleft">contest over</span>
+</div>
+
+<script>
+    var initial = 1763981020;
+    var localInitial = new Date().getTime();
+    var activatetime = 1543050000;
+    var starttime = 1543136400;
+    var endtime = 1543154400;
+    var clientOffset = localInitial - new Date(initial * 1000).getTime();
+    var timeleftelt = document.getElementById("timeleft");
+
+    setInterval(function () {
+        updateClock();
+    }, 1000);
+    updateClock();
+</script>
+    </div>
+  </div>
+</nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                                                                                    
+    <div class="container submitform pt-5">
+        <h1 class="text-center">Print source</h1>
+        <form name="print" method="post" enctype="multipart/form-data"><div id="print"><div class="mb-3"><label for="print_code" class="form-label required">Source file:</label>        <input type="file" id="print_code" name="print[code]" required="required" onchange="detectLanguage(this.value)" class="form-control">    </div><div class="mb-3"><label class="form-label" for="print_langid">Language:</label><select id="print_langid" name="print[langid]" class="form-control form-select form-select"><option value="" selected="selected">plain text</option><option value="adb">Ada</option><option value="awk">AWK</option><option value="bash">Bash shell</option><option value="c">C</option><option value="csharp">C#</option><option value="cpp">C++</option><option value="f95">Fortran</option><option value="hs">Haskell</option><option value="java">Java</option><option value="js">JavaScript</option><option value="kt">Kotlin</option><option value="lua">Lua</option><option value="ocaml">OCaml</option><option value="pas">Pascal</option><option value="pl">Perl</option><option value="sh">POSIX shell</option><option value="plg">Prolog</option><option value="py2">Python 2</option><option value="py3">Python 3</option><option value="r">R</option><option value="rb">Ruby</option><option value="rs">Rust</option><option value="scala">Scala</option><option value="swift">Swift</option></select></div><div class="mb-3">                    <button type="submit" id="print_print" name="print[print]" class="btn-primary btn">Print code</button></div>        <input type="hidden" id="print__token" name="print[_token]" value="0aa8aae53839ff4ede.sR2zn_72l3AnXq8BT6l8vLOQUxnveIvrTOpR7XX8NLs.5nDkwLe_7iQWPMBKN9sJyNGkFWmhCs6AHZ1nviClQMH2S-bvsJvSB1E0nw">    </div></form>
+    </div>
+
+            </div>
+        </div>
+    </div>
+
+<script>
+            var domjudge_base_url = "/demoweb";
+        var markdownPreviewUrl = "/demoweb/markdown-preview";
+    $(function () {
+        /* toggle refresh if set */
+                /* Enable page refresh if set if wanted by the page, and wanted by the user */
+        
+        initializeAjaxModals();
+    });
+</script>
+    <script>
+    function getMainExtension(ext) {
+        switch (ext) {
+                                            case 'c':
+                return 'c';
+                                                            case 'cpp':
+                return 'cpp';
+                            case 'cc':
+                return 'cpp';
+                            case 'cxx':
+                return 'cpp';
+                            case 'c++':
+                return 'cpp';
+                                                            case 'java':
+                return 'java';
+                                                            case 'kt':
+                return 'kt';
+                                                            case 'py2':
+                return 'py2';
+                            case 'py':
+                return 'py2';
+                                                            case 'py3':
+                return 'py3';
+                                            default:
+                return '';
+        }
+    }
+
+    function getEntryPoint(mainext) {
+        switch (mainext) {
+                                                                                                            case 'java':
+                return 'Main class';
+                                                            case 'kt':
+                return 'Main class';
+                                                            case 'py2':
+                return 'Main file';
+                                                            case 'py3':
+                return 'Main file';
+                                            default:
+                return '';
+        }
+    }
+</script>
+<script>
+    function entryPointDetectJava(filename) {
+        return filename.replace(/\.[^\.]*$/, '');
+    }
+
+    function entryPointDetectKt(filename) {
+        var filebase = filename.replace(/\.[^\.]*$/, '');
+        if (filebase === '') return '_Kt';
+
+        filebase = filebase.replace(/[^a-zA-Z0-9]/, '_');
+        if (filebase.charAt(0).match(/^[a-zA-Z]$/)) {
+            return filebase.charAt(0).toUpperCase() + filebase.slice(1) + 'Kt';
+        } else {
+            return '_' + filebase + 'Kt';
+        }
+    }
+
+    function maybeShowEntryPoint(filename) {
+        var langid = $('#submit_problem_language').val();
+        if (langid === "") {
+            return;
+        }
+        var $entryPoint = $('[data-entry-point]');
+        var $entryPointLabel = $entryPoint.find('label');
+        var $entryPointInput = $entryPoint.find('input');
+        var entryPointDescription = getEntryPoint(langid);
+        if (entryPointDescription) {
+            $entryPoint.show();
+        } else {
+            $entryPoint.hide();
+        }
+
+        if (entryPointDescription) {
+            var $labelChildren = $entryPointLabel.children();
+            $entryPointLabel.text(entryPointDescription).append($labelChildren);
+            $entryPointInput.attr('required', 'required');
+        } else {
+            $entryPointInput.attr('required', null);
+        }
+
+        if (entryPointDescription && filename) {
+            switch (langid) {
+                case 'java':
+                    $entryPointInput.val(entryPointDetectJava(filename));
+                    break;
+                case 'kt':
+                    $entryPointInput.val(entryPointDetectKt(filename));
+                    break;
+                default:
+                    $entryPointInput.val(filename);
+            }
+        } else {
+            $entryPointInput.val('');
+        }
+    }
+
+    $(function () {
+        var $entryPoint = $('[data-entry-point]');
+        $entryPoint.hide();
+
+        var processFile = function () {
+            var filename = $('#submit_problem_code').val();
+            if (filename !== '' && filename !== undefined) {
+                filename = filename.replace(/^.*[\\\/]/, '');
+                var parts = filename.split('.').reverse();
+                if (parts.length < 2) return;
+                var lcParts = [parts[0].toLowerCase(), parts[1].toLowerCase()];
+
+                // language ID
+
+                var language = document.getElementById('submit_problem_language');
+                // the "autodetect" option has empty value
+                if (language.value !== '') return;
+
+                var langid = getMainExtension(lcParts[0]);
+                for (i = 0; i < language.length; i++) {
+                    if (language.options[i].value === langid) {
+                        language.selectedIndex = i;
+                    }
+                }
+
+                maybeShowEntryPoint(filename);
+
+                // Problem ID
+
+                var problem = document.getElementById('submit_problem_problem');
+                // the "autodetect" option has empty value
+                if (problem.value !== '') {
+                    return;
+                }
+
+                for (var i = 0; i < problem.length; i++) {
+                    if (problem.options[i].text.split(/ - /)[0].toLowerCase() === lcParts[1]) {
+                        problem.selectedIndex = i;
+                    }
+                }
+            }
+        };
+
+        var $body = $('body');
+        $body.on('change', '#submit_problem_code', processFile);
+        $body.on('change', '#submit_problem_language', function () {
+            maybeShowEntryPoint();
+        });
+
+        $body.on('submit', 'form[name=submit_problem]', function () {
+            var langelt = document.getElementById("submit_problem_language");
+            var language = langelt.options[langelt.selectedIndex].value;
+            var languagetxt = langelt.options[langelt.selectedIndex].text;
+            var fileelt = document.getElementById("submit_problem_code");
+            var filenames = fileelt.files;
+            var filename = filenames[0].name;
+            var probelt = document.getElementById("submit_problem_problem");
+            var problem = probelt.options[probelt.selectedIndex].value;
+            var problemtxt = probelt.options[probelt.selectedIndex].text;
+
+            var error = false;
+            if (language === "") {
+                langelt.focus();
+                langelt.className = langelt.className + " errorfield";
+                error = true;
+            }
+            if (problem === "") {
+                probelt.focus();
+                probelt.className = probelt.className + " errorfield";
+                error = true;
+            }
+            if (filename === "") {
+                error = true;
+            }
+            if (error) return false;
+
+            var auxfileno = 0;
+            // start at one; skip maincode file field
+            for (var i = 1; i < filenames.length; i++) {
+                if (filenames[i].value !== "") {
+                    auxfileno++;
+                }
+            }
+            var extrafiles = '';
+            if (auxfileno > 0) {
+                extrafiles = "Additional source files: " + auxfileno + '\n';
+            }
+            var question =
+                'Main source file: ' + filename + '\n' +
+                extrafiles + '\n' +
+                'Problem: ' + problemtxt + '\n' +
+                'Language: ' + languagetxt + '\n' +
+                '\nMake submission?';
+            return confirm(question);
+        });
+
+        processFile();
+        maybeShowEntryPoint();
+
+        window.initSubmitModal = function ($elem) {
+            $('[data-entry-point]').hide();
+        };
+    });
+</script>
+
+    <script>
+        $(function () {
+            var $body = $('body');
+            $body.on('submit', 'form[name=team_clarification]', function () {
+                return confirm("Send clarification request to Jury?");
+            });
+
+            window.replaceClarificationReplyButton = function() {
+                var $replyButton = $('#clarification-reply-button');
+                var $submitButton = $('<button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-envelope"></i> Send</button>');
+                $replyButton.replaceWith($submitButton);
+
+                $submitButton.on('click', function() {
+                    var $form = $('form[name="team_clarification"]');
+                    if ($form[0].reportValidity()) {
+                        $form.submit();
+                    }
+                });
+            }
+
+            $body.on('click', '#clarification-reply-button', function() {
+                replaceClarificationReplyButton();
+            });
+
+            /* Show the notification options if the browser supports it */
+            if ('Notification' in window) {
+                $('#notify_disable').click(disableNotifications);
+                $('#notify_enable').click(enableNotifications);
+                if (getCookie('domjudge_notify') != 1) {
+                    $('#notify_enable').removeClass('d-none');
+                } else {
+                    $('#notify_disable').removeClass('d-none');
+                }
+            }
+            updateClarifications();
+            setInterval(updateClarifications, 20000);
+        });
+
+    </script>
+    <script>
+    function detectLanguage(filename) {
+        var parts = filename.toLowerCase().split('.').reverse();
+        if (parts.length < 2) return;
+
+        // language ID
+
+        var elt = document.getElementById('print_langid');
+        // the 'autodetect' option has empty value
+        if (elt.value !== '') return;
+
+        var langid = getMainExtension(parts[0]);
+        for (var i = 0; i < elt.length; i++) {
+            if (elt.options[i].value === langid) {
+                elt.selectedIndex = i;
+            }
+        }
+
+    }
+</script>
+<script>
+    function getMainExtension(ext) {
+        switch (ext) {
+                                            case 'c':
+                return 'c';
+                                                            case 'cpp':
+                return 'cpp';
+                            case 'cc':
+                return 'cpp';
+                            case 'cxx':
+                return 'cpp';
+                            case 'c++':
+                return 'cpp';
+                                                            case 'java':
+                return 'java';
+                                                            case 'kt':
+                return 'kt';
+                                                            case 'py2':
+                return 'py2';
+                            case 'py':
+                return 'py2';
+                                                            case 'py3':
+                return 'py3';
+                                            default:
+                return '';
+        }
+    }
+
+    function getEntryPoint(mainext) {
+        switch (mainext) {
+                                                                                                            case 'java':
+                return 'Main class';
+                                                            case 'kt':
+                return 'Main class';
+                                                            case 'py2':
+                return 'Main file';
+                                                            case 'py3':
+                return 'Main file';
+                                            default:
+                return '';
+        }
+    }
+</script>
+
+
+</body></html>

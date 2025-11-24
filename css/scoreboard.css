@@ -1,0 +1,59 @@
+.scoreboard-container { overflow-x: auto; }
+
+.scoreboard.center {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.scoreboard th,
+.scoreboard td {
+  text-align: center;
+}
+
+.scoreboard .team {
+  text-align: left;
+  font-weight: 700;
+}
+
+.scoreboard .team .affil {
+  display: block;
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.scoreboard .score_cell div {
+  min-width: 4.4em;
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+.scoreboard .score_cell span {
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.scoreboard td.score_cell {
+  min-width: 3.2em;
+}
+
+.self-row {
+  box-shadow: inset 0 0 0 3px #0d6efd;
+}
+
+.scorethisisme {
+  background: #ffff99;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.controls-row input[type="number"],
+.controls-row input[type="range"] {
+  max-width: 150px;
+}

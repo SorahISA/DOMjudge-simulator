@@ -1,0 +1,39 @@
+{
+    "contest": {
+        "name": "Testing Contest",
+        "length": 3600,
+        "freeze": 1800,
+        "medals": [
+            4,
+            4,
+            4
+        ],
+        "n_problems": 3,
+        "problems": [
+            {
+                "short": "A",
+                "name": "Hello World!",
+                "code": "helloworld",
+                "color": "#FF0000",
+                "border": "#bf0000"
+            },
+            {
+                "short": "B",
+                "name": "A + B Problem",
+                "code": "aplusb",
+                "color": "#00FF00",
+                "border": "#00bf00"
+            },
+            {
+                "short": "C",
+                "name": "A * B Problem",
+                "code": "atimesb",
+                "color": "#0000FF",
+                "border": "#0000bf"
+            }
+        ]
+    },
+    "contestant": [
+        
+    ]
+}

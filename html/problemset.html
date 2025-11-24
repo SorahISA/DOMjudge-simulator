@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problemset - DOMjudge</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="../css/scoreboard-category-color.css">
+  <link rel="stylesheet" href="../css/style_domjudge.css">
+  <link rel="stylesheet" href="../css/scoreboard.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand hidden-sm-down" href="../index.html">DOMjudge</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuDefault" aria-controls="menuDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuDefault">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="problemset.html"><i class="fas fa-book-open"></i> Problemset</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="print.html"><i class="fas fa-file-alt"></i> Print</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="scoreboard.html"><i class="fas fa-list-ol"></i> Scoreboard</a>
+          </li>
+        </ul>
+
+        <div class="navbar-text me-3">
+          <a class="nav-link" data-go-home href="home.html">
+            <span class="btn btn-warning btn-sm">
+              <i class="fas fa-bell fa-fw"></i> Enable Notifications
+            </span>
+          </a>
+        </div>
+        <div class="navbar-text me-3">
+          <a class="nav-link" href="#" data-submit-modal>
+            <span class="btn btn-success btn-sm">
+              <i class="fas fa-cloud-upload-alt"></i> Submit
+            </span>
+          </a>
+        </div>
+        <a class="btn btn-info btn-sm me-2" data-go-home href="home.html">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+        <div class="navbar-text" style="white-space:nowrap;">
+          <span style="padding-left: 10px;">
+            <i class="fas fa-clock loading-indicator"></i>
+          </span>
+          <span id="timeleft">contest over</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-fluid mt-3">
+    <div class="row">
+      <div class="col">
+        <h1 class="teamoverview">Problemset</h1>
+      </div>
+    </div>
+    <div class="row" id="problemset-body"></div>
+  </main>
+
+  <script src="../js/state.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/modal-submit.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/problemset.js"></script>
+</body>
+</html>
